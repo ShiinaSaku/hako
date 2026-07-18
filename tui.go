@@ -36,9 +36,9 @@ type model struct {
 	all     []Package
 	results []Package
 
-	search   textinput.Model
-	sCursor  int
-	sOffset  int
+	search  textinput.Model
+	sCursor int
+	sOffset int
 
 	installed []Package
 	iCursor   int
@@ -64,8 +64,8 @@ type model struct {
 	// executing: a modal shown while an apt action runs in the background.
 	// apt's own UI is suppressed (DEBIAN_FRONTEND=noninteractive, captured
 	// stdout/stderr) and we present this overlay instead.
-	executing  bool
-	execLabel  string
+	executing bool
+	execLabel string
 
 	status  string
 	statusC lipgloss.Color
@@ -90,9 +90,9 @@ type clearStatusMsg struct{}
 
 // ---------- commands ----------
 
-func loadCmd() tea.Msg          { return loadedMsg{all: allPackages()} }
-func reloadCmd() tea.Msg        { return reloadMsg{all: allPackages()} }
-func statsCmd() tea.Msg         { return statsMsg{s: computeStats()} }
+func loadCmd() tea.Msg   { return loadedMsg{all: allPackages()} }
+func reloadCmd() tea.Msg { return reloadMsg{all: allPackages()} }
+func statsCmd() tea.Msg  { return statsMsg{s: computeStats()} }
 func detailCmd(name string) tea.Cmd {
 	return func() tea.Msg { return detailMsg{d: packageDetail(name)} }
 }

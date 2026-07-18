@@ -223,9 +223,9 @@ func dedupe(in []string) []string {
 
 // Stats summarises installed footprint.
 type Stats struct {
-	Count    int
-	TotalKB  int64
-	Largest  []Package
+	Count   int
+	TotalKB int64
+	Largest []Package
 }
 
 func computeStats() Stats {

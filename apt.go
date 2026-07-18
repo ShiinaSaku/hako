@@ -106,11 +106,11 @@ func (r aptResult) summary() string {
 // per CLI action and stopped with .finish(), which clears the line and prints a
 // final ✓/✗ line via the caller.
 type cliSpinner struct {
-	msg    string
-	tty    bool
-	stop   chan struct{}
-	done   chan struct{}
-	mu     sync.Mutex
+	msg     string
+	tty     bool
+	stop    chan struct{}
+	done    chan struct{}
+	mu      sync.Mutex
 	running bool
 }
 

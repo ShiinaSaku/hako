@@ -22,10 +22,18 @@ var (
 
 func isTTY() bool { return isatty.IsTerminal(os.Stdout.Fd()) }
 
-func ok(format string, a ...any)   { fmt.Println(okStyle.Render("✓") + " " + fmt.Sprintf(format, a...)) }
-func fail(format string, a ...any) { fmt.Fprintln(os.Stderr, errStyle.Render("✗")+" "+fmt.Sprintf(format, a...)) }
-func step(format string, a ...any) { fmt.Println(accentSty.Render("→") + " " + fmt.Sprintf(format, a...)) }
-func warn(format string, a ...any) { fmt.Println(warnStyle.Render("!") + " " + fmt.Sprintf(format, a...)) }
+func ok(format string, a ...any) {
+	fmt.Println(okStyle.Render("✓") + " " + fmt.Sprintf(format, a...))
+}
+func fail(format string, a ...any) {
+	fmt.Fprintln(os.Stderr, errStyle.Render("✗")+" "+fmt.Sprintf(format, a...))
+}
+func step(format string, a ...any) {
+	fmt.Println(accentSty.Render("→") + " " + fmt.Sprintf(format, a...))
+}
+func warn(format string, a ...any) {
+	fmt.Println(warnStyle.Render("!") + " " + fmt.Sprintf(format, a...))
+}
 
 // dispatch runs the CLI and returns an exit code.
 func dispatch(args []string, cfg *Config) int {

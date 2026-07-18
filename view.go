@@ -237,7 +237,7 @@ func (m model) viewStats() string {
 }
 
 func (m model) viewDetail() string {
-	title := titleStyle.Render(" "+m.detail.Name+" ")
+	title := titleStyle.Render(" " + m.detail.Name + " ")
 	content := m.detailVP.View()
 	panel := panelStyle.Width(m.detailVP.Width).Render(content)
 	help := helpStyle.Render(m.detailHelp())
